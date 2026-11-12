@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emails_externos",
+  "info": {
+    "singularName": "email-externo",
+    "pluralName": "emails-externos",
+    "displayName": "Email de fora"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "remetente_nome": {
+      "type": "string"
+    },
+    "remetente_email": {
+      "type": "email",
+      "required": true
+    },
+    "assunto": {
+      "type": "string",
+      "required": true
+    },
+    "corpo": {
+      "type": "text"
+    },
+    "recebido_em": {
+      "type": "datetime"
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "novo",
+        "lido",
+        "respondido"
+      ],
+      "default": "novo"
+    },
+    "notas": {
+      "type": "text"
+    }
+  }
+}

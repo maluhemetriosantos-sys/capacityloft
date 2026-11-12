@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "solucoes",
+  "info": {
+    "singularName": "solucao",
+    "pluralName": "solucoes",
+    "displayName": "Solução"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "categoria": {
+      "type": "string"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "pagina-inicio": {
+    "hero_etiqueta": "capacityloft",
+    "hero_titulo": "Mais de 20 anos a *ligar* o seu negócio.",
+    "hero_texto": "Gerimos os seus serviços de telecomunicações e aconselhamos as tecnologias certas",
+    "destaque1_titulo": "Comunicações unificadas",
+    "destaque1_texto": "Central telefónica virtual e voz fixa e móvel num só pacote.",
+    "destaque2_titulo": "Um só parceiro",
+    "destaque2_texto": "Gestão centralizada dos seus serviços de telecomunicações.",
+    "destaque3_titulo": "Tecnologia que acompanha",
+    "destaque3_texto": "Aconselhamento em Cloud, IoT e gestão de frotas.",
+    "servicos_titulo": "O que fazemos por si",
+    "sobre_titulo": "Parcerias feitas de confiança",
+    "contacto_titulo": "Vamos falar do seu negócio?"
+  },
+  "pagina-solucoes": {
+    "eyebrow": "Soluções",
+    "titulo": "Encontre a solução para a sua empresa",
+    "subtitulo": "Pacotes e serviços para comunicações, cloud e negócio.",
+    "grelha_titulo": "Todas as soluções"
+  },
+  "pagina-servicos": {
+    "eyebrow": "Serviços",
+    "titulo": "O que fazemos por si",
+    "subtitulo": "Um único parceiro para as telecomunicações e tecnologia da sua organização."
+  },
+  "pagina-como-trabalhamos": {
+    "eyebrow": "Como trabalhamos",
+    "titulo": "Do primeiro contacto à gestão contínua",
+    "subtitulo": "Quatro passos simples, com a mesma equipa do início ao fim.",
+    "passo1_titulo": "Passo 1 — Contacte-nos",
+    "passo1_texto": "Fale com a nossa equipa por telefone, email ou pelo formulário.",
+    "passo2_titulo": "Passo 2 — Perceba o que precisa",
+    "passo2_texto": "Analisamos os serviços de telecomunicações e as necessidades tecnológicas da sua empresa.",
+    "passo3_titulo": "Passo 3 — Receba uma proposta",
+    "passo3_texto": "Uma solução à medida da sua organização, num único parceiro.",
+    "passo4_titulo": "Passo 4 — Nós tratamos do resto",
+    "passo4_texto": "Implementação e gestão contínua dos seus serviços."
+  },
+  "pagina-sobre": {
+    "eyebrow": "Sobre nós",
+    "titulo": "Parcerias feitas de confiança",
+    "subtitulo": "Localizamo-nos em Camarate, Loures, mas atuamos em todo o território nacional.",
+    "quem_titulo": "Quem somos",
+    "paragrafo1": "A Capacityloft é Agente Autorizado Meo Empresas, com profissionais com uma experiência de mais de 20 anos no ramo das telecomunicações.",
+    "paragrafo2": "Localizamo-nos em Camarate, Loures, mas atuamos em todo o território nacional. Gerimos e acompanhamos as telecomunicações dos nossos Clientes para garantir que os mesmos têm a melhor solução de comunicações do mercado.",
+    "paragrafo3": "Aconselhamos também na área da Energia e das novas tecnologias, bem como, Cloud, IoT, gestão de frotas, entre outras que poderemos disponibilizar/apresentar aos nossos clientes.",
+    "paragrafo4": "Temos vários clientes de renome no mercado e estamos a trabalhar para que o próximo seja a sua empresa."
+  },
+  "pagina-contacto": {
+    "eyebrow": "Contacto",
+    "titulo": "Fale connosco",
+    "subtitulo": "Resposta de uma equipa com mais de 20 anos de experiência.",
+    "bloco_titulo": "Vamos falar do seu negócio?",
+    "email": "geral@capacityloft.pt",
+    "telefone_movel": "962 818 800",
+    "telefone_fixo": "219 412 162",
+    "morada": "Rua Ivone Silva, nº 9 Loja E\n2680-076 Camarate"
+  },
+  "politica-privacidade": {
+    "titulo": "Política de Privacidade",
+    "resumo": "Como tratamos os seus dados pessoais.",
+    "atualizacao": "novembro de 2026",
+    "conteudo": "## 1. Quem é o responsável pelo tratamento\n\nO responsável pelo tratamento dos dados pessoais recolhidos neste site é a Capacity Loft. Identificação legal completa (denominação, NIF e sede): [a preencher pela empresa]. Morada de contacto: Rua Ivone Silva, nº 9 Loja E, 2680-076 Camarate. Email: [geral@capacityloft.pt](mailto:geral@capacityloft.pt).\n\n## 2. Que dados recolhemos\n\nRecolhemos apenas os dados que nos envia através do formulário de contacto: nome, email, empresa (opcional) e o texto da sua mensagem. Quando nos liga ou escreve diretamente, tratamos os dados que nos fornecer nessa comunicação.\n\n## 3. Para que usamos os dados e com que fundamento\n\n- Responder ao seu pedido de contacto e preparar uma proposta: diligências pré-contratuais a seu pedido (art. 6.º, n.º 1, al. b) do RGPD).\n- Manter o registo da comunicação e defender-nos em caso de litígio: interesse legítimo (art. 6.º, n.º 1, al. f) do RGPD).\n\nNão usamos os seus dados para decisões automatizadas, nem para marketing sem o seu consentimento.\n\n## 4. Com quem partilhamos\n\nNão vendemos os seus dados. Podem ser tratados por prestadores que nos apoiam na alojagem e no funcionamento do site, ao abrigo de contrato e apenas para esse fim. Se avançarmos para a contratação de serviços de telecomunicações, poderemos partilhar os dados necessários com o operador respetivo. Prestadores de alojagem concretos: [a preencher pela empresa].\n\n## 5. Durante quanto tempo guardamos\n\nGuardamos as mensagens pelo tempo necessário para responder e acompanhar o pedido e, depois disso, durante o prazo legalmente exigido ou, se não houver relação contratual, durante o período máximo de [a preencher pela empresa].\n\n## 6. Os seus direitos\n\nPode pedir o acesso, a retificação, o apagamento, a limitação, a portabilidade e opor-se ao tratamento dos seus dados, e retirar o consentimento quando for o fundamento. Para isso escreva para [geral@capacityloft.pt](mailto:geral@capacityloft.pt). Tem também o direito de apresentar reclamação à Comissão Nacional de Proteção de Dados ([cnpd.pt](https://www.cnpd.pt)).\n\n## 7. Segurança\n\nAdotamos medidas técnicas e organizativas adequadas para proteger os dados contra acesso não autorizado, perda ou alteração.\n\n## 8. Cookies\n\nConsulte a nossa [Política de Cookies](cookies.html).\n\n## 9. Alterações\n\nPodemos atualizar esta política. A data da última atualização está no topo desta página."
+  },
+  "politica-cookies": {
+    "titulo": "Política de Cookies",
+    "resumo": "Que cookies e armazenamento usamos neste site.",
+    "atualizacao": "novembro de 2026",
+    "conteudo": "## 1. O que são cookies\n\nCookies são pequenos ficheiros guardados no seu dispositivo quando visita um site. Servem, por exemplo, para o site funcionar ou para recordar as suas escolhas.\n\n## 2. O que este site usa\n\n- **Cookies de estatística e de marketing:** neste momento o site não os usa. O aviso regista a sua preferência (aceitar, recusar ou personalizar) para o caso de passarmos a usá-los; só o faremos com a sua autorização.\n- **Armazenamento local (preferência):** guardamos no seu navegador apenas a sua preferência sobre o aviso de cookies, para não lhe voltar a perguntar. Não contém dados pessoais.\n- **Tipo de letra:** o site carrega tipos de letra do Google Fonts. Ao fazê-lo, o seu navegador contacta servidores da Google, que podem registar o seu endereço IP. Mais informação em [policies.google.com/privacy](https://policies.google.com/privacy).\n\n## 3. Como gerir ou retirar a sua escolha\n\nPode apagar o armazenamento do site nas definições do seu navegador, e o aviso voltará a aparecer. Pode também bloquear cookies no navegador; o site continuará a funcionar.\n\n## 4. Alterações\n\nSe passarmos a usar outros cookies (por exemplo, de análise), atualizaremos esta página e pediremos o seu consentimento antes de os ativar.\n\n## 5. Mais informação\n\nVeja a nossa [Política de Privacidade](privacidade.html) ou escreva para [geral@capacityloft.pt](mailto:geral@capacityloft.pt)."
+  },
+  "termos-condicoes": {
+    "titulo": "Termos e Condições",
+    "resumo": "As regras de utilização do site capacityloft.pt.",
+    "atualizacao": "novembro de 2026",
+    "conteudo": "## 1. Âmbito\n\nEstes termos regulam o uso do site capacityloft.pt, propriedade da Capacity Loft (identificação legal: [a preencher pela empresa]). Ao usar o site, aceita estes termos.\n\n## 2. Natureza do site\n\nO site tem caráter informativo sobre os serviços e soluções que apresentamos. A informação não constitui uma proposta contratual vinculativa. As condições concretas de cada serviço são as que constam da proposta ou do contrato celebrado com a Capacity Loft ou com o operador.\n\n## 3. Serviços de operadores e marcas de terceiros\n\nA Capacity Loft atua como agente autorizado. Os nomes, marcas e logótipos de terceiros (como operadores e fabricantes) pertencem aos respetivos titulares e são usados apenas para identificar os serviços. Preços, coberturas e condições dos serviços dos operadores são definidos por estes.\n\n## 4. Propriedade intelectual\n\nOs conteúdos do site (textos, imagens, logótipos e design) estão protegidos. Não podem ser copiados ou reutilizados sem autorização, salvo nos casos permitidos por lei.\n\n## 5. Utilização adequada\n\nCompromete-se a usar o site de forma lícita, sem tentar aceder a áreas não públicas, sobrecarregar o serviço ou introduzir código malicioso. O formulário de contacto destina-se a pedidos legítimos.\n\n## 6. Limitação de responsabilidade\n\nEsforçamo-nos por manter a informação correta e atualizada, mas não garantimos que esteja isenta de erros ou sempre disponível. Não respondemos por danos resultantes do uso do site ou de ligações para sites de terceiros, na medida permitida por lei.\n\n## 7. Dados pessoais\n\nO tratamento de dados pessoais está descrito na [Política de Privacidade](privacidade.html) e na [Política de Cookies](cookies.html).\n\n## 8. Lei aplicável e litígios\n\nEstes termos regem-se pela lei portuguesa. Em caso de litígio, é competente o tribunal [a preencher pela empresa]. O consumidor pode recorrer a uma entidade de resolução alternativa de litígios de consumo; informação em [consumidor.gov.pt](https://www.consumidor.gov.pt).\n\n## 9. Contacto\n\nDúvidas sobre estes termos: [geral@capacityloft.pt](mailto:geral@capacityloft.pt)."
+  }
+}

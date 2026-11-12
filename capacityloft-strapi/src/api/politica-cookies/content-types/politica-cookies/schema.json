@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "politica_cookies_all",
+  "info": {
+    "singularName": "politica-cookies",
+    "pluralName": "politica-cookies-all",
+    "displayName": "Política de Cookies"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "resumo": {
+      "type": "text"
+    },
+    "atualizacao": {
+      "type": "string"
+    },
+    "conteudo": {
+      "type": "richtext"
+    }
+  }
+}

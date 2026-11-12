@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mensagens",
+  "info": {
+    "singularName": "mensagem",
+    "pluralName": "mensagens",
+    "displayName": "Email do site"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "empresa": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "texto": {
+      "type": "text",
+      "maxLength": 3000
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "novo",
+        "lido",
+        "respondido"
+      ],
+      "default": "novo"
+    },
+    "notas": {
+      "type": "text"
+    }
+  }
+}

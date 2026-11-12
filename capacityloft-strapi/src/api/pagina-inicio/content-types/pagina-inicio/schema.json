@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_inicio_all",
+  "info": {
+    "singularName": "pagina-inicio",
+    "pluralName": "pagina-inicio-all",
+    "displayName": "Página: Início"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_etiqueta": {
+      "type": "string"
+    },
+    "hero_titulo": {
+      "type": "string"
+    },
+    "hero_texto": {
+      "type": "text"
+    },
+    "destaque1_titulo": {
+      "type": "string"
+    },
+    "destaque1_texto": {
+      "type": "text"
+    },
+    "destaque2_titulo": {
+      "type": "string"
+    },
+    "destaque2_texto": {
+      "type": "text"
+    },
+    "destaque3_titulo": {
+      "type": "string"
+    },
+    "destaque3_texto": {
+      "type": "text"
+    },
+    "servicos_titulo": {
+      "type": "string"
+    },
+    "sobre_titulo": {
+      "type": "string"
+    },
+    "contacto_titulo": {
+      "type": "string"
+    }
+  }
+}
