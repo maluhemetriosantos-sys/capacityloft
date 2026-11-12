@@ -20,9 +20,9 @@ const track=document.getElementById('track');if(track){
 }
 // guide steps highlight on scroll
 const steps=[...document.querySelectorAll('.step')],sb=document.getElementById('steps');if(sb){
-function upd(){const r=sb.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.65-r.top)/r.height));
-  // a bolinha percorre a barra entre a linha do 1.º e a do último passo; cada passo acende quando a bolinha o alcança
-  const ys=steps.map(s=>s.getBoundingClientRect().bottom-r.top),pos=ys[0]+p*(ys[ys.length-1]-ys[0]);
+function upd(){const r=sb.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.5-r.top)/r.height));
+  // a bolinha parte do topo da barra e desce até ao último passo; cada passo acende quando a bolinha o alcança
+  const ys=steps.map(s=>s.getBoundingClientRect().bottom-r.top),pos=p*ys[ys.length-1];
   sb.style.setProperty('--p',pos+'px');steps.forEach((s,i)=>s.classList.toggle('on',ys[i]<=pos+1))}
 addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();}
 

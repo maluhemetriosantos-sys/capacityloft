@@ -82,7 +82,8 @@ header{position:sticky;top:12px;z-index:50;margin:12px auto 0;max-width:none;pad
 .arrows{display:flex;gap:8px}
 .arrows button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--prime);background:none;color:var(--prime);cursor:pointer;font-size:1.1rem;transition:.3s}
 .arrows button:hover{background:var(--black);color:#fff;border-color:var(--black)}
-.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+/* o carrossel sai até às bordas do cartão (compensa o padding do .card) */
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;margin-inline:calc(-1*clamp(24px,4vw,56px));padding-inline:clamp(24px,4vw,56px);scroll-padding-inline:clamp(24px,4vw,56px)}
 .track::-webkit-scrollbar{display:none}
 .track::-webkit-scrollbar{display:none}
 .pc{flex:0 0 min(340px,78vw);margin-right:18px;scroll-snap-align:start;background:var(--warm);border-radius:22px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s}
@@ -204,6 +205,8 @@ footer .fc span{line-height:1.5}
 footer .fbot{grid-column:1/-1;padding-top:20px;margin-top:8px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem}
 @media(max-width:900px){footer .fgrid{grid-template-columns:1fr 1fr}footer .fb{grid-column:1/-1}}
 @media(max-width:520px){footer .fgrid{grid-template-columns:1fr}}
+/* mobile: o carrossel arrasta-se com o dedo, sem setas */
+@media(max-width:900px){.arrows{display:none}}
 footer .logo{color:#fff}
 
 /* REVEAL */
@@ -287,12 +290,12 @@ main.wrap>.features{position:relative;z-index:3;margin-top:-84px;border-radius:4
 .hcol{display:grid;gap:clamp(28px,5vw,64px)}
 .hcol:first-child .hi{flex-direction:row-reverse;text-align:right}
 .hi{display:flex;gap:16px;align-items:flex-start}
-.hic{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.2rem}
+.hic{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.2rem;background:var(--prime)!important;box-shadow:0 8px 20px -8px rgba(0,8,93,.5)}
 .hi h3{font-size:1.1rem;margin-bottom:6px}.hi p{font-size:.93rem;color:rgba(0,8,93,.72)}
 .hmid{position:relative;aspect-ratio:1;border-radius:28px;background:linear-gradient(135deg,var(--prime),var(--black));display:grid;place-items:center;overflow:hidden;color:#fff}
 .hmid i{position:absolute;inset:8%;border:1px dashed rgba(255,255,255,.3);border-radius:50%}.hmid i.r2{inset:24%;border-color:rgba(176,178,181,.6)}.hmid i.r3{inset:40%;border:1px solid rgba(253,243,230,.5)}
 .hmid b{position:relative;font:700 1.4rem Sora}
-@media(max-width:900px){.hubg{grid-template-columns:1fr}.hmid{order:-1;max-width:320px;margin:0 auto}.hcol:first-child .hi{flex-direction:row;text-align:left}}
+@media(max-width:900px){.hubg{grid-template-columns:1fr}.hmid{order:-1;width:min(240px,70vw);margin:0 auto}.hmid i.r3{inset:31%}.hmid b{font-size:1.1rem}.hcol:first-child .hi{flex-direction:row;text-align:left}}
 
 /* SOBRE */
 .about{display:grid;grid-template-columns:1.4fr .8fr;gap:clamp(24px,5vw,72px);align-items:start}
