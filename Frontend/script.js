@@ -1,7 +1,9 @@
 // nav
 const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
-document.getElementById('burger').onclick=()=>document.getElementById('links').classList.toggle('open');
-document.querySelectorAll('#links a').forEach(a=>a.onclick=()=>document.getElementById('links').classList.remove('open'));
+const setMenu=o=>{const b=document.getElementById('burger');document.getElementById('links').classList.toggle('open',o);
+  b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');document.body.classList.toggle('no-scroll',o)};
+document.getElementById('burger').onclick=()=>setMenu(!document.getElementById('links').classList.contains('open'));
+document.querySelectorAll('#links a').forEach(a=>a.onclick=()=>setMenu(false));
 
 // reveal + counters
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');
@@ -136,3 +138,62 @@ const sv=[...document.querySelectorAll('.s')];sv.forEach(s=>s.addEventListener('
   b.querySelector('.cb-pers').onclick=()=>{const o=b.querySelector('.cb-opts');o.hidden=!o.hidden};
   b.querySelector('.cb-save').onclick=()=>save('personalizado:'+(b.querySelector('#cbe').checked?'estatistica,':'')+(b.querySelector('#cbm').checked?'marketing':''));
   document.body.appendChild(b)})();
+
+// «Guia para começar»: ao chegar à secção o scroll da página fica bloqueado e a roda/toque/teclas fazem
+// surgir os passos 1→4, um a um; só depois do passo 4 completo o scroll volta a descer a página.
+// Ecrãs pequenos (sem espaço para a secção inteira) não bloqueiam: os passos surgem com o scroll normal.
+(function(){const g=document.querySelector('.hubg'),sec=document.querySelector('.hub');if(!g||!sec||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const hi=[...g.querySelectorAll('.hi')],N=hi.length,clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),TOP=72,root=document.documentElement,
+    lockable=matchMedia('(min-width:901px) and (min-height:680px)');
+  let prog=0,cur=0,locked=false,done=false,raf=0,last=scrollY;
+  const paint=()=>hi.forEach((el,i)=>el.style.setProperty('--s',clamp(cur-i).toFixed(3)));
+  const draw=()=>{cur+=(prog-cur)*.12;if(Math.abs(prog-cur)<.002)cur=prog;paint();raf=cur===prog?0:requestAnimationFrame(draw)};
+  const go=()=>{if(!raf)raf=requestAnimationFrame(draw)};
+  const lock=()=>{const r=sec.getBoundingClientRect();scrollTo({top:scrollY+r.top-TOP,behavior:'instant'});locked=true;root.classList.add('locked')};
+  const unlock=()=>{locked=false;root.classList.remove('locked')};
+  const add=d=>{prog=clamp(prog+d*.0035,0,N);go();
+    if(prog>=N){done=true;unlock()}else if(prog<=0&&d<0){unlock()}};
+  const free=()=>!lockable.matches;
+  const soft=()=>{const r=g.getBoundingClientRect();prog=cur=clamp((innerHeight*.85-r.top)/(innerHeight*.75))*N;paint()};
+  addEventListener('scroll',()=>{
+    if(free()){soft();return}
+    if(locked)return;
+    const r=sec.getBoundingClientRect(),down=scrollY>last;last=scrollY;
+    if(r.top>innerHeight*.9&&done){done=false;prog=cur=0;paint()}
+    else if(!done&&down&&r.top<=TOP+4&&r.bottom>innerHeight*.5)lock()
+  },{passive:true});
+  addEventListener('wheel',e=>{if(!locked)return;e.preventDefault();add(e.deltaY)},{passive:false});
+  let y0=0;addEventListener('touchstart',e=>{y0=e.touches[0].clientY},{passive:true});
+  addEventListener('touchmove',e=>{if(!locked)return;e.preventDefault();const y=e.touches[0].clientY;add((y0-y)*1.4);y0=y},{passive:false});
+  addEventListener('keydown',e=>{if(!locked||(e.target.closest&&e.target.closest('input,textarea,select,button,a')))return;
+    const k={ArrowDown:50,PageDown:140,' ':140,End:400,ArrowUp:-50,PageUp:-140,Home:-400}[e.key];if(k===undefined)return;e.preventDefault();add(k)});
+  addEventListener('resize',()=>{if(free()&&locked)unlock();free()?soft():paint()});
+  if(free())soft();else paint()})();
+
+
+// transição entre páginas (painel de vidro, ver style.css). Mesma página → só recarrega, sem transição.
+(function(){const root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const file=u=>(u.pathname.split('/').pop()||'index.html').toLowerCase();
+  let busy=false;
+  // volta pelo histórico (bfcache): tira o painel que ficou a cobrir a página
+  addEventListener('pageshow',e=>{if(e.persisted){busy=false;root.classList.remove('pt-out','pt-in')}});
+  // acabada a revelação, solta as camadas (nada fica por cima da página)
+  document.addEventListener('animationend',ev=>{if(ev.animationName==='ptOut')root.classList.remove('pt-in')});
+  document.addEventListener('click',e=>{
+    const a=e.target.closest&&e.target.closest('a[href]');
+    if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target&&a.target!=='_self'||a.hasAttribute('download'))return;
+    let u;try{u=new URL(a.href,location.href)}catch(_){return}
+    if(u.origin!==location.origin||!/\.html?$|\/$/.test(u.pathname))return;
+    if(file(u)===file(location)){e.preventDefault();if(u.hash&&u.hash!==location.hash){location.href=u.href;return}location.reload();return}
+    if(reduce)return;
+    e.preventDefault();
+    if(busy)return; // segundo clique durante a transição: ignora (não navega para outro lado)
+    busy=true;
+    try{sessionStorage.setItem('cl-pt','1')}catch(_){}
+    root.classList.add('pt-out');
+    // navega quando o painel acaba de cobrir (animationend); o temporizador é só salvaguarda
+    let go=false;const nav=()=>{if(go)return;go=true;location.href=u.href};
+    document.addEventListener('animationend',ev=>{if(ev.animationName==='ptIn')nav()});
+    setTimeout(nav,1100);
+  });
+})();

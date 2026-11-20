@@ -292,9 +292,9 @@ main.wrap>.features{position:relative;z-index:3;margin-top:-84px;border-radius:4
 .hi{display:flex;gap:16px;align-items:flex-start}
 .hic{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.2rem;background:var(--prime)!important;box-shadow:0 8px 20px -8px rgba(0,8,93,.5)}
 .hi h3{font-size:1.1rem;margin-bottom:6px}.hi p{font-size:.93rem;color:rgba(0,8,93,.72)}
-.hmid{position:relative;aspect-ratio:1;border-radius:28px;background:linear-gradient(135deg,var(--prime),var(--black));display:grid;place-items:center;overflow:hidden;color:#fff}
+.hmid{position:relative;justify-self:center;width:100%;aspect-ratio:1;border-radius:28px;background:linear-gradient(135deg,var(--prime),var(--black));display:grid;place-items:center;overflow:hidden;color:#fff}
 .hmid i{position:absolute;inset:8%;border:1px dashed rgba(255,255,255,.3);border-radius:50%}.hmid i.r2{inset:24%;border-color:rgba(176,178,181,.6)}.hmid i.r3{inset:40%;border:1px solid rgba(253,243,230,.5)}
-.hmid b{position:relative;font:700 1.4rem Sora}
+.hmid b{position:relative;font:700 1.4rem Sora;line-height:1;text-align:center}
 @media(max-width:900px){.hubg{grid-template-columns:1fr}.hmid{order:-1;width:min(240px,70vw);margin:0 auto}.hmid i.r3{inset:31%}.hmid b{font-size:1.1rem}.hcol:first-child .hi{flex-direction:row;text-align:left}}
 
 /* SOBRE */
@@ -326,7 +326,7 @@ main.wrap>.features{position:relative;z-index:3;margin-top:-84px;border-radius:4
 .hmid b{animation:hfloat 5s ease-in-out infinite}
 @keyframes hspin{to{transform:rotate(360deg)}}
 @keyframes hpulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.12);opacity:.5}}
-@keyframes hfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes hfloat{0%,100%{transform:translateY(3px)}50%{transform:translateY(-3px)}}
 @media(prefers-reduced-motion:reduce){.hmid i,.hmid b{animation:none}}
 
 /* LEGAL + COOKIES */
@@ -347,3 +347,138 @@ main.wrap>.features{position:relative;z-index:3;margin-top:-84px;border-radius:4
 @keyframes cbin{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
 .ico[style*="--grey"]{color:var(--prime)}
+
+/* Fundo atrás da faixa de destaques: degradê do azul do hero até ao creme da página.
+   O branco passa para ::after para o degradê (::before) ficar por baixo dele, só visível nos cantos e nas laterais. */
+main.wrap>.features{background:transparent}
+main.wrap>.features::before,main.wrap>.features::after{content:"";position:absolute;z-index:-1;pointer-events:none}
+main.wrap>.features::before{top:0;bottom:-20px;left:-14px;right:-14px;background:linear-gradient(180deg,var(--prime) 0,var(--warm) 100%)}
+main.wrap>.features::after{inset:0;background:var(--white);border-radius:inherit}
+
+
+/* ─── Menu ao estilo do site Vieh ──────────────────────────────────────────────────────────────
+   Barra sem cartão, links com sublinhado que se desenha ao passar/ativo, «Contacto» em pill de
+   contorno e, em mobile, menu de ecrã inteiro com burger de duas linhas. (Sem PT/EN: este site
+   só tem português.) Cores da paleta do próprio site. */
+header{top:0;margin:0;padding:0}
+.nav{background:var(--warm);backdrop-filter:none;border:0;border-bottom:1px solid transparent;border-radius:0;
+  padding:10px clamp(20px,5vw,80px);box-shadow:none!important}
+.links{align-items:center;gap:clamp(20px,3vw,44px);font-size:.95rem;font-weight:400}
+.links a{padding:6px 0}
+.links a:not(.menu-cta)::after{left:0;right:0;width:auto;bottom:0;height:1px;background:var(--prime);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.links a:not(.menu-cta):hover::after,.links a.act:not(.menu-cta)::after{width:auto;transform:scaleX(1);transform-origin:left}
+.links a.act:not(.menu-cta){color:inherit}
+.menu-cta{border:1px solid currentColor;padding:9px 22px!important;border-radius:99px;transition:background .3s,color .3s}
+.menu-cta:hover,.menu-cta.act{background:var(--prime);color:var(--warm)}
+.menu-cta::after{display:none!important}
+.burger{display:none;width:44px;height:44px;position:relative;z-index:62;padding:0;font-size:0;color:var(--prime)}
+.burger span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:.35s cubic-bezier(.7,0,.2,1)}
+.burger span:first-child{top:18px}.burger span:last-child{top:26px}
+.burger[aria-expanded="true"] span:first-child{top:22px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{top:22px;transform:rotate(-45deg)}
+@media(max-width:900px){
+  .burger{display:block}
+  .links{display:flex;position:fixed;inset:0;z-index:61;background:var(--prime);color:var(--warm);flex-direction:column;justify-content:center;align-items:flex-start;
+    padding:0 clamp(20px,5vw,80px);gap:12px;border-radius:0;box-shadow:none;font:300 clamp(1.7rem,7vw,2.4rem)/1.2 Sora,sans-serif;
+    clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .6s cubic-bezier(.7,0,.2,1),visibility 0s .6s}
+  .links.open{clip-path:inset(0);visibility:visible;transition:clip-path .6s cubic-bezier(.7,0,.2,1)}
+  .links a:not(.menu-cta)::after{background:var(--warm)}
+  .menu-cta{border:0;padding:6px 0!important;border-radius:0}
+  .menu-cta:hover,.menu-cta.act{background:none;color:var(--warm)}
+  body.no-scroll{overflow:hidden}
+  body.no-scroll .burger,body.no-scroll .logo{color:var(--warm);position:relative;z-index:62}
+}
+
+.nav.scrolled{border-bottom-color:rgba(0,8,93,.12)}
+header{margin-bottom:20px}
+
+
+/* Transição entre páginas: um painel de vidro fosco sobe e cobre a página (a desfocar o que passa por trás
+   dele) e, na página nova, continua a subir até sair. O desfoque corre junto com o painel, não com a página.
+   O script.js põe html.pt-out ao clicar e a marca html.pt-in na página seguinte (script no <head>).
+   Suavidade: uma só curva longa, só `transform`/`border-radius` animados na camada própria (o blur fica
+   fixo, não se anima), e o painel é RECTO quando cobre tudo — assim o fim da saída e o início da entrada
+   são o mesmo quadro e não há salto no corte entre páginas. */
+html::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;transform:translate3d(0,101%,0);will-change:transform,border-radius;
+  background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(0,8,93,.46) 22%,rgba(0,8,93,.66));
+  -webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6);
+  border-radius:40px 40px 0 0}
+html.pt-out,html.pt-out *{pointer-events:none!important}
+html.pt-out::after{animation:ptIn .95s cubic-bezier(.65,0,.25,1) both}
+html.pt-in::after{transform:none;border-radius:0;animation:ptOut 1.05s cubic-bezier(.65,0,.25,1) .22s both}
+@keyframes ptIn{from{transform:translate3d(0,101%,0);border-radius:40px 40px 0 0}70%{border-radius:40px 40px 0 0}to{transform:translate3d(0,0,0);border-radius:0}}
+@keyframes ptOut{from{transform:translate3d(0,0,0);border-radius:0}30%{border-radius:0 0 40px 40px}to{transform:translate3d(0,-101%,0);border-radius:0 0 40px 40px}}
+@media(prefers-reduced-motion:reduce){html::after,html::before{display:none}}
+/* Camada opaca por baixo do vidro: aparece só no fim da cobertura e some no início da revelação, para o
+   corte entre páginas acontecer sempre debaixo de azul sólido (o vidro sozinho é translúcido e deixava ver a mudança). */
+html::before{content:"";position:fixed;inset:0;z-index:299;pointer-events:none;background:var(--prime);opacity:0}
+html.pt-out::before{animation:ptSolidIn .95s cubic-bezier(.65,0,.25,1) both}
+html.pt-in::before{opacity:1;animation:ptSolidOut 1.05s cubic-bezier(.65,0,.25,1) .22s both}
+@keyframes ptSolidIn{0%,55%{opacity:0}100%{opacity:1}}
+@keyframes ptSolidOut{0%{opacity:1}45%{opacity:0}100%{opacity:0}}
+
+
+/* «Guia para começar»: cada passo surge com o scroll (o valor --s, 0→1, é escrito por script.js).
+   Sem JS ou com «reduzir movimento» o --s não existe e os passos ficam visíveis. */
+.hi{opacity:var(--s,1);transform:translate(calc((1 - var(--s,1)) * var(--dx,0px)),calc((1 - var(--s,1)) * 24px))}
+.hcol:first-child .hi{--dx:-48px}.hcol:last-child .hi{--dx:48px}
+@media(max-width:900px){.hi{--dx:0px!important}}
+
+/* ─── Cartão do mapa: endereço centrado (todas as larguras) ───────────────────────────────────── */
+.map{align-items:center;text-align:center}
+.map h3,.map p{width:100%;text-align:center}
+
+/* ─── Mobile: tudo organizado numa coluna, com margens e alvos de toque certos ────────────────── */
+@media(max-width:600px){
+  html{-webkit-text-size-adjust:100%}
+  .wrap{padding:0 10px}
+  section{margin:14px 0}
+  .card{padding:28px 20px}
+  .nav{padding:8px 16px}
+  .logo img{height:40px}
+  /* hero e cabeçalhos de página */
+  .hero{padding:44px 20px 56px}
+  .hero h1{font-size:clamp(1.9rem,8.4vw,2.4rem)}
+  .hero p{font-size:1rem}
+  .hero .cta{flex-direction:column;align-items:stretch;width:100%;max-width:340px}
+  .hero .cta .btn{justify-content:center;width:100%}
+  .phead{padding:40px 20px}
+  .phead h1{font-size:clamp(1.9rem,8vw,2.4rem)}
+  /* faixa de destaques */
+  main.wrap>.features{padding:28px 16px 20px;gap:4px}
+  .feat{padding:10px 6px}
+  /* títulos de secção + botões */
+  .sh,.tabs{flex-direction:column;align-items:flex-start;gap:14px}
+  .sh .btn,.card>.btn{align-self:stretch;justify-content:center}
+  h2{font-size:clamp(1.55rem,6.6vw,2rem)}
+  /* soluções: cartões do carrossel a ocupar quase a largura toda */
+  .pc{flex-basis:86%}
+  .pc p{min-height:0}
+  /* números e textos */
+  .stat p{max-width:none}
+  .stats{gap:12px}
+  /* contacto */
+  .contact .ctl{padding:28px 20px}
+  .contact .ctl p{max-width:none}
+  .contact .ctb{margin:10px;padding:22px 18px}
+  .contact .ctb a,.contact.cpage .ctl li a{font-size:1rem;word-break:break-word}
+  .contact li{gap:12px}
+  .contact .ctb input,.contact .ctb textarea{font-size:16px}  /* evita o zoom automático do iOS */
+  /* mapa */
+  .map{min-height:320px;padding:24px 18px}
+  .map h3{font-size:1.2rem}
+  .map p{font-size:.86rem}
+  /* rodapé centrado */
+  footer .fgrid{text-align:center;justify-items:center}
+  footer .fgrid a,footer .fgrid span{display:block}
+  footer .fbot{text-align:center;justify-content:center;flex-direction:column;gap:10px}
+  /* avisos e botão de topo */
+  .cookiebar{flex-direction:column;align-items:stretch;gap:12px;padding:16px 18px;left:10px;right:10px;bottom:10px}
+  .cookiebar .cb-b{display:flex;gap:10px}.cookiebar .cb-b button{flex:1}
+  .totop{right:14px;bottom:14px;width:46px;height:46px}
+}
+@media(max-width:380px){.card{padding:24px 16px}.menu-cta{padding:6px 0!important}}
+
+/* vídeo de fundo (hero) */
+.hero>.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;z-index:0;pointer-events:none;mix-blend-mode:screen}
+@media(prefers-reduced-motion:reduce){.hero>.hero-bg{display:none}}
